@@ -4,10 +4,191 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"href="styles.css">
-    <title>Document</title>
+    <meta name="theme-color" content="#059669">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="app.css">
+    <title>Mangrove Monitoring</title>
+
 </head>
 <body>
-     </h1>This Is Version V6</h1> 
+    <div class="cursor-shadow" aria-hidden="true"></div>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <span class="logo">🌿</span>
+                <span class="brand-name">Mangrove</span>
+            </div>
+            <nav class="nav">
+                <a href="#/" data-route>Home</a>
+                <a href="#/dashboard" data-route>Dashboard</a>
+                <a href="#/report" data-route>Report</a>
+                <a href="#/map" data-route>Map</a>
+                <a href="#/rewards" data-route>Rewards</a>
+                <a href="#/learn" data-route>Learn</a>
+                <div class="nav-sep"></div>
+                <a class="btn btn-sm btn-ghost" href="#/login/community" data-route>Community Login</a>
+                <a class="btn btn-sm btn-primary" href="#/login/government" data-route>Government Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Landing -->
+        <section id="page-home" class="page active">
+            <div class="hero">
+                <h1 class="hero-title">Protect Mangroves. Empower Communities.</h1>
+                <p class="hero-subtitle">Report threats, verify incidents, and track restoration with live maps and rewards.</p>
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="#/report" data-route>Report Incident</a>
+                    <a class="btn btn-outline" href="#/map" data-route>View Live Map</a>
+                </div>
+            </div>
+            <div class="features">
+                <div class="card">
+                    <h3>AI-assisted Validation</h3>
+                    <p>Automatic checks for relevance and severity to prioritize action.</p>
+                    <button class="btn btn-ghost" data-toast="AI checks are simulated in this demo.">Learn more</button>
+                </div>
+                <div class="card">
+                    <h3>Real-time Alerts</h3>
+                    <p>Authorities get instant notifications for high-severity cases.</p>
+                    <button class="btn btn-ghost" data-toast="Alerts will ping on critical incidents.">How it works</button>
+                </div>
+                <div class="card">
+                    <h3>Gamified Impact</h3>
+                    <p>Earn points and badges for validated reports and learning.</p>
+                    <button class="btn btn-ghost" data-route href="#/rewards">See rewards</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard -->
+        <section id="page-dashboard" class="page">
+            <h2>Dashboard</h2>
+            <p>Welcome, <span id="display-role">Guest</span>. Choose an action:</p>
+            <div class="grid">
+                <button class="card btn btn-card" data-route href="#/report">Report new incident</button>
+                <button class="card btn btn-card" data-route href="#/map">Open interactive map</button>
+                <button class="card btn btn-card" data-route href="#/rewards">Check rewards</button>
+                <button class="card btn btn-card" data-route href="#/learn">Learn & quizzes</button>
+            </div>
+        </section>
+
+        <!-- Report -->
+        <section id="page-report" class="page">
+            <h2>Report Incident</h2>
+            <form id="report-form" class="form">
+                <label>Photo URL
+                    <input type="url" name="photoUrl" placeholder="https://..." required>
+                </label>
+                <div class="row">
+                    <label>Latitude
+                        <input type="number" name="latitude" step="0.000001" placeholder="12.9716" required>
+                    </label>
+                    <label>Longitude
+                        <input type="number" name="longitude" step="0.000001" placeholder="77.5946" required>
+                    </label>
+                </div>
+                <label>Type
+                    <select name="type" required>
+                        <option value="Illegal Cutting">Illegal Cutting</option>
+                        <option value="Pollution">Pollution</option>
+                        <option value="Land Reclamation">Land Reclamation</option>
+                    </select>
+                </label>
+                <div class="row">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-outline" id="use-location">Use my location</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Map -->
+        <section id="page-map" class="page">
+            <h2>Interactive Map</h2>
+            <div class="card placeholder" role="img" aria-label="Map placeholder">Map will appear here (demo)</div>
+            <div class="row">
+                <button class="btn btn-outline" data-toast="Satellite overlay toggled">Toggle satellite overlay</button>
+                <button class="btn btn-outline" data-toast="Heatmap overlay toggled">Toggle heatmap</button>
+            </div>
+        </section>
+
+        <!-- Rewards -->
+        <section id="page-rewards" class="page">
+            <h2>Rewards & Badges</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Eco-Warrior</h3>
+                    <p>Earned for 5 validated reports.</p>
+                    <button class="btn btn-primary" data-toast="Redeemed 1 seed pack!">Redeem seeds</button>
+                </div>
+                <div class="card">
+                    <h3>Guardian</h3>
+                    <p>Earned for 10 validations.</p>
+                    <button class="btn btn-primary" data-toast="Redeemed eco-tee coupon!">Redeem coupon</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learn -->
+        <section id="page-learn" class="page">
+            <h2>Learn</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Mangrove Basics</h3>
+                    <p>Short course: why mangroves matter.</p>
+                    <button class="btn btn-outline" data-toast="Course started!">Start</button>
+                </div>
+                <div class="card">
+                    <h3>Species ID</h3>
+                    <p>Identify local species with a guided checklist.</p>
+                    <button class="btn btn-outline" data-toast="Guide opened!">Open</button>
+                </div>
+                <div class="card">
+                    <h3>Quiz</h3>
+                    <p>Earn points by answering 5 questions.</p>
+                    <button class="btn btn-outline" data-toast="Quiz launched!">Take quiz</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login: Community -->
+        <section id="page-login-community" class="page">
+            <h2>Community Login</h2>
+            <form id="login-community" class="form">
+                <label>Email
+                    <input type="email" name="email" placeholder="you@example.com" required>
+                </label>
+                <label>Password
+                    <input type="password" name="password" placeholder="••••••••" required>
+                </label>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </section>
+
+        <!-- Login: Government -->
+        <section id="page-login-government" class="page">
+            <h2>Government Login</h2>
+            <form id="login-government" class="form">
+                <label>Official Email
+                    <input type="email" name="email" placeholder="officer@agency.gov" required>
+                </label>
+                <label>Password
+                    <input type="password" name="password" placeholder="••••••••" required>
+                </label>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </section>
+
+    </main>
+
+    <div id="toast-root" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+
+    <footer class="site-footer container">
+        <p>© <span id="year"></span> Mangrove Monitoring • Built for community & conservation</p>
+    </footer>
+
+    <script src="app.js"></script>
+    
 </body> 
 </html>
